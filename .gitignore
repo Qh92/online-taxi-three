@@ -1,11 +1,14 @@
+#.gitignore
 HELP.md
 target/
-.mvn/wrapper/*
-mvnw.cmd
-mvnw
-README.md
-!**/src/main/**
-!**/src/test/**
+*/mvn/wrapper/maven-wrapper.jar
+*/target/**/*.class
+*/target/
+*.class
+*/**/*.class
+production/
+artifacts/
+
 
 ### STS ###
 .apt_generated
@@ -29,6 +32,15 @@ README.md
 /nbdist/
 /.nb-gradle/
 build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+
+###
+*.txt
+*/**/*.txt
+*/**/*.jpg
+*/**/*.avi
+
