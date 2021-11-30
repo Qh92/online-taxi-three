@@ -12,6 +12,13 @@ eureka:
     service-url:
       defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/,http://localhost:7902/eureka/
 
+  server:
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.85
+    eviction-interval-timer-in-ms: 1000
+    use-read-only-response-cache: false
+
+
 
 ---
 spring:
