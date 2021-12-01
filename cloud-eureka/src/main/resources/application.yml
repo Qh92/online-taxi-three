@@ -13,10 +13,16 @@ eureka:
       defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/,http://localhost:7902/eureka/
 
   server:
+    # 是否开启自我保护
     enable-self-preservation: false
+    # 设置阈值
     renewal-percent-threshold: 0.85
+    # 踢出服务的间隔时间，如果该时间间隔太长，则消费方可能会拉取到不可用的服务
     eviction-interval-timer-in-ms: 1000
+    # 关闭从readOnly读注册表
     use-read-only-response-cache: false
+    # readOnly和readWrite同步时间间隔（查询出可用服务的时间间隔，提高查询可用服务的速度）
+    response-cache-update-interval-ms: 1000
 
 
 
