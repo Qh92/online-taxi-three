@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://localhost:7900/eureka
+      z1: http://localhost:7911/eureka,http://localhost:7912/eureka
+      z2: http://localhost:7921/eureka,http://localhost:7922/eureka
+    # 服务拉取
+    #registry-fetch-interval-seconds: 30
+    # 注册的区域
+    region: cd
+    # 只给z1注册
+    availability-zones:
+      cd: z1
+    # 优先调用相同区域的服务
+    prefer-same-zone-eureka: true
+
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    # 优先区为z1
+    metadata-map:
+      zone: z1
+
+
+spring:
+  application:
+    name: api-passenger
+
+zone:
+  name: cdz1

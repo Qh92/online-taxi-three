@@ -5,13 +5,25 @@ server:
 eureka:
   client:
     service-url:
+      # 默认注册和拉取只用第一个地址的注册中心，第一个注册中心挂了，才去第二个注册中心拉取和注册，依次类推
+      # 为了不让某个server压力过大，实际工作中，每个client 要把后面的url，随机打乱，
       defaultZone: http://localhost:7900/eureka
-    # 服务拉取
+      #,http://localhost:7901/eureka,http://localhost:7902/eureka
+    # 注册表拉取间隔
     registry-fetch-interval-seconds: 30
+    # 默认注册，false不注册
+    enabled: true
 
   instance:
+    # 心跳间隔时间
     lease-renewal-interval-in-seconds: 10
 
 spring:
   application:
     name: api-passenger
+
+# 饥饿加载
+#ribbon:
+#  eager-load:
+#    clients: api-passenger
+#    enabled: true
