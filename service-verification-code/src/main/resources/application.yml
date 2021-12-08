@@ -7,3 +7,7 @@ eureka:
 spring:
   application:
     name: service-verification-code
+
+  redis:
+    host: 47.106.194.106
+    port: 9202

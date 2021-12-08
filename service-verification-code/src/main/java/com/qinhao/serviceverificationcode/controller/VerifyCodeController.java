@@ -1,7 +1,6 @@
 package com.qinhao.serviceverificationcode.controller;
 
 import com.qinhao.internalcommon.dto.ResponseResult;
-import com.qinhao.internalcommon.dto.serviceverificationcode.VerifyCodeResponse;
 import com.qinhao.serviceverificationcode.service.VerifyCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Random;
 
 /**
  * @author Qh
@@ -25,6 +22,12 @@ public class VerifyCodeController {
     @Qualifier("verifyCodeService")
     private VerifyCodeService verifyCodeService;
 
+    /**
+     * 生成验证码
+     * @param identity 乘客/司机 标识
+     * @param phoneNumber 电话号码
+     * @return
+     */
     @GetMapping("/generate/{identity}/{phoneNumber}")
     public ResponseResult generate(@PathVariable("identity") int identity ,@PathVariable ("phoneNumber") String phoneNumber ) {
         return verifyCodeService.generate(identity, phoneNumber);
